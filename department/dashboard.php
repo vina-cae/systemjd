@@ -114,6 +114,7 @@ mysqli_stmt_close($statsStmt);
                 </div>
                 <div class="flex items-center space-x-4">
                     <span class="text-sm text-gray-600"><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
+                    <a href="../profile.php" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">Profile</a>
                     <a href="../auth/logout.php" class="text-gray-500 hover:text-red-600">
                         <i data-lucide="log-out" class="w-5 h-5"></i>
                     </a>

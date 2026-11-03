@@ -98,8 +98,9 @@ if ($clearance) {
     <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
         <span class="font-bold text-xl">Clear-Pass</span>
         <div>
-            <?php echo htmlspecialchars($_SESSION['user_name']); ?>
-            <a href="../auth/logout.php" class="ml-3 text-red-500">Logout</a>
+            <span class="mr-3"><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
+            <a href="../profile.php" class="text-indigo-600 hover:text-indigo-800 font-medium mr-3">Profile</a>
+            <a href="../auth/logout.php" class="text-red-500 hover:text-red-700">Logout</a>
         </div>
     </div>
 </nav>
