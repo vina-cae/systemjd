@@ -94,6 +94,10 @@ if ($deptResult) {
                     <i data-lucide="users" class="w-5 h-5 mr-3"></i>
                     Users
                 </a>
+                <a href="../profile.php" class="sidebar-link flex items-center px-4 py-3 rounded-lg transition-colors">
+                    <i data-lucide="user" class="w-5 h-5 mr-3"></i>
+                    My Profile
+                </a>
                 <a href="../auth/logout.php" class="sidebar-link flex items-center px-4 py-3 rounded-lg transition-colors text-red-300 hover:text-red-200">
                     <i data-lucide="log-out" class="w-5 h-5 mr-3"></i>
                     Logout
