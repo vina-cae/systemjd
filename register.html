@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Clear-Pass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="glass-effect rounded-2xl shadow-2xl w-full max-w-lg p-8">
+        <div class="text-center mb-8">
+            <div class="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i data-lucide="user-plus" class="w-10 h-10 text-white"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Student Registration</h1>
+            <p class="text-gray-600">Create your Clear-Pass account</p>
+        </div>
+
+        <form action="auth/register.php" method="POST" class="space-y-5">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Student ID</label>
+                    <div class="relative">
+                        <i data-lucide="id-card" class="absolute left-3 top-3 w-5 h-5 text-gray-400"></i>
+                        <input type="text" name="student_id" required 
+                            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            placeholder="2024-0001">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <div class="relative">
+                        <i data-lucide="user" class="absolute left-3 top-3 w-5 h-5 text-gray-400"></i>
+                        <input type="text" name="full_name" required 
+                            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            placeholder="Juan Dela Cruz">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <div class="relative">
+                    <i data-lucide="mail" class="absolute left-3 top-3 w-5 h-5 text-gray-400"></i>
+                    <input type="email" name="email" required 
+                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        placeholder="student@university.edu">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <div class="relative">
+                    <i data-lucide="lock" class="absolute left-3 top-3 w-5 h-5 text-gray-400"></i>
+                    <input type="password" name="password" required minlength="8"
+                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        placeholder="Minimum 8 characters">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                <div class="relative">
+                    <i data-lucide="lock" class="absolute left-3 top-3 w-5 h-5 text-gray-400"></i>
+                    <input type="password" name="confirm_password" required 
+                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        placeholder="Re-enter password">
+                </div>
+            </div>
+
+            <div class="flex items-center">
+                <input type="checkbox" name="terms" required class="rounded text-indigo-600 focus:ring-indigo-500 mr-2">
+                <label class="text-sm text-gray-600">
+                    I agree to the <a href="#" class="text-indigo-600 hover:underline">Terms of Service</a> and 
+                    <a href="#" class="text-indigo-600 hover:underline">Privacy Policy</a>
+                </label>
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transform hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center gap-2">
+                <span>Create Account</span>
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">
+                Already have an account? 
+                <a href="index.html" class="text-indigo-600 font-semibold hover:underline">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // Password match validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const password = document.querySelector('input[name="password"]').value;
+            const confirm = document.querySelector('input[name="confirm_password"]').value;
+            
+            if (password !== confirm) {
+                e.preventDefault();
+                alert('Passwords do not match!');
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
